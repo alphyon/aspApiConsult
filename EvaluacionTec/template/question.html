@@ -1,0 +1,66 @@
+﻿
+<div ng-controller="QuestController">
+    <div class="jumbotron text-center">
+        <h3>{{message}}</h3>        
+    </div>
+    <div class="bg-info">
+        <br />
+        <a href="#/login" ng-show="{{!flag}}">Login</a>
+        <span class="label label-primary" ng-show="{{flag}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario </span>
+
+    </div>
+    <br />
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{titleQuest}}</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-bind-html="htmlBody"></div>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/ng-template" id="myModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Comantar pregunta..</h3>
+        </div>
+        <div class="modal-body">
+           <textarea placeholder="comentar.." ></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+</div>
+    <div class="container" ng-controller="AnswersController">
+        <div ng-repeat="answer in answers">
+            <hr />
+            <div class="container">
+                <span class="label label-success">
+                    Puntaje <span class="badge">{{answer.score}}</span>
+                </span>
+                &nbsp;&nbsp;&nbsp;
+                <span class="label label-warning">
+                    Fecha creación : {{answer.creation_date | date}} 
+                </span>
+                &nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-user" aria-hidden="true">{{answer.owner.display_name}}</span>
+                &nbsp;&nbsp;&nbsp;
+                
+                   <button ng-click="showModal()" class="btn btn-info" ng-show="{{flag}}"> <span class="glyphicon glyphicon-comment" aria-hidden="true"> comentar</span></button>
+                    
+                    <div class="well" ng-bind-html="answer.body">
+
+                    </div>
+
+
+</div>
+        </div>
+</div>
+
+
+
+<br />

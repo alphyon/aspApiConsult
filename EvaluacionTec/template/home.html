@@ -1,0 +1,27 @@
+﻿
+<div ng-controller="mainController">
+    <div class="jumbotron text-center">
+        <h2><p>{{ message }}</p></h2>
+
+        
+
+    </div>
+    <div class="bg-info">
+    <br />
+        <a href="#/login" ng-show="{{!flag}}">Login</a>
+        <span class="label label-primary" ng-show="{{flag}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario </span>
+    </div>
+    <br />
+    <div class="container">
+        <table>
+            <tr ng-repeat="question in questions">
+                <td><a href="#/question/{{question.question_id}}">{{question.title}}&nbsp;&nbsp;<span class="badge">{{question.view_count}}</span></a></td>
+            </tr>
+        </table>
+
+
+
+
+    </div>
+</div>
+<br />
